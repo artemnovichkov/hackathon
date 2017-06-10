@@ -11,15 +11,21 @@
 		060F08711E4D6C9200D9166F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 060F08651E4D6C9200D9166F /* Assets.xcassets */; };
 		060F08731E4D6C9200D9166F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060F08691E4D6C9200D9166F /* LaunchScreen.storyboard */; };
 		060F08741E4D6C9200D9166F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060F086A1E4D6C9200D9166F /* Main.storyboard */; };
+		061CC7011EEC458900634893 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FE1EEC456100634893 /* Alamofire.framework */; };
+		061CC7021EEC458900634893 /* Framezilla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC7001EEC456100634893 /* Framezilla.framework */; };
+		061CC7031EEC458900634893 /* TableViewTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FF1EEC456100634893 /* TableViewTools.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		060F08441E4D6B3900D9166F /* Hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hackathon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		060F08441E4D6B3900D9166F /* Hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		060F085B1E4D6C9200D9166F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		060F08651E4D6C9200D9166F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		060F08691E4D6C9200D9166F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		060F086A1E4D6C9200D9166F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		060F087C1E4D702C00D9166F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		061CC6FE1EEC456100634893 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		061CC6FF1EEC456100634893 /* TableViewTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TableViewTools.framework; path = Carthage/Build/iOS/TableViewTools.framework; sourceTree = "<group>"; };
+		061CC7001EEC456100634893 /* Framezilla.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Framezilla.framework; path = Carthage/Build/iOS/Framezilla.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +33,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				061CC7011EEC458900634893 /* Alamofire.framework in Frameworks */,
+				061CC7021EEC458900634893 /* Framezilla.framework in Frameworks */,
+				061CC7031EEC458900634893 /* TableViewTools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +50,7 @@
 				060F08681E4D6C9200D9166F /* Storyboards */,
 				060F087B1E4D702C00D9166F /* Hackathon */,
 				060F08451E4D6B3900D9166F /* Products */,
+				061CC6FD1EEC456000634893 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,7 +141,7 @@
 			children = (
 				060F087C1E4D702C00D9166F /* Info.plist */,
 			);
-			path = "Hackathon";
+			path = Hackathon;
 			sourceTree = "<group>";
 		};
 		060F089C1E4D79C000D9166F /* Core */ = {
@@ -139,6 +149,16 @@
 			children = (
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		061CC6FD1EEC456000634893 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				061CC6FE1EEC456100634893 /* Alamofire.framework */,
+				061CC7001EEC456100634893 /* Framezilla.framework */,
+				061CC6FF1EEC456100634893 /* TableViewTools.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,7 +178,7 @@
 			);
 			dependencies = (
 			);
-			name = "Hackathon";
+			name = Hackathon;
 			productName = Template;
 			productReference = 060F08441E4D6B3900D9166F /* Hackathon.app */;
 			productType = "com.apple.product-type.application";
@@ -171,7 +191,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = "Rosberry";
+				ORGANIZATIONNAME = Rosberry;
 				TargetAttributes = {
 					060F08431E4D6B3900D9166F = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -231,6 +251,9 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Framezilla.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/TableViewTools.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -351,10 +374,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Hackathon/Info.plist";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Hackathon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rosberry.hackathon";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rosberry.hackathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -365,10 +392,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Hackathon/Info.plist";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Hackathon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rosberry.hackathon";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rosberry.hackathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
