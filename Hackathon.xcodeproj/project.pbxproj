@@ -11,9 +11,13 @@
 		060F08711E4D6C9200D9166F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 060F08651E4D6C9200D9166F /* Assets.xcassets */; };
 		060F08731E4D6C9200D9166F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060F08691E4D6C9200D9166F /* LaunchScreen.storyboard */; };
 		060F08741E4D6C9200D9166F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060F086A1E4D6C9200D9166F /* Main.storyboard */; };
+		061CC6F01EEC436C00634893 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC6EF1EEC436C00634893 /* DetailViewController.swift */; };
 		061CC7011EEC458900634893 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FE1EEC456100634893 /* Alamofire.framework */; };
 		061CC7021EEC458900634893 /* Framezilla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC7001EEC456100634893 /* Framezilla.framework */; };
 		061CC7031EEC458900634893 /* TableViewTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FF1EEC456100634893 /* TableViewTools.framework */; };
+		061CC7091EEC468700634893 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC7081EEC468700634893 /* AppTableViewCell.swift */; };
+		061CC70B1EEC469000634893 /* AppTableViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC70A1EEC469000634893 /* AppTableViewCellItem.swift */; };
+		06CBEB711EEC486300E3EEE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC7051EEC465D00634893 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +27,13 @@
 		060F08691E4D6C9200D9166F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		060F086A1E4D6C9200D9166F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		060F087C1E4D702C00D9166F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		061CC6EF1EEC436C00634893 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		061CC6FE1EEC456100634893 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		061CC6FF1EEC456100634893 /* TableViewTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TableViewTools.framework; path = Carthage/Build/iOS/TableViewTools.framework; sourceTree = "<group>"; };
 		061CC7001EEC456100634893 /* Framezilla.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Framezilla.framework; path = Carthage/Build/iOS/Framezilla.framework; sourceTree = "<group>"; };
+		061CC7051EEC465D00634893 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		061CC7081EEC468700634893 /* AppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
+		061CC70A1EEC469000634893 /* AppTableViewCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCellItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,8 @@
 		060F08621E4D6C9200D9166F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				061CC7041EEC465D00634893 /* Main */,
+				061CC6EF1EEC436C00634893 /* DetailViewController.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -159,6 +169,32 @@
 				061CC6FF1EEC456100634893 /* TableViewTools.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		061CC7041EEC465D00634893 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				061CC7061EEC466D00634893 /* Submodules */,
+				061CC7051EEC465D00634893 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		061CC7061EEC466D00634893 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				061CC7071EEC467800634893 /* AppCell */,
+			);
+			path = Submodules;
+			sourceTree = "<group>";
+		};
+		061CC7071EEC467800634893 /* AppCell */ = {
+			isa = PBXGroup;
+			children = (
+				061CC7081EEC468700634893 /* AppTableViewCell.swift */,
+				061CC70A1EEC469000634893 /* AppTableViewCellItem.swift */,
+			);
+			path = AppCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,7 +305,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				061CC70B1EEC469000634893 /* AppTableViewCellItem.swift in Sources */,
+				061CC6F01EEC436C00634893 /* DetailViewController.swift in Sources */,
 				060F086D1E4D6C9200D9166F /* AppDelegate.swift in Sources */,
+				061CC7091EEC468700634893 /* AppTableViewCell.swift in Sources */,
+				06CBEB711EEC486300E3EEE4 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
