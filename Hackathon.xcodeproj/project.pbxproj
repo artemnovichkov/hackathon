@@ -408,7 +408,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		060F08791E4D6CF100D9166F /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -416,7 +416,7 @@
 			name = SwiftLint;
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ./Scripts/swiftlint_script.sh;
 		};

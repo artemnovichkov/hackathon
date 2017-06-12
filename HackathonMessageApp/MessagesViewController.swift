@@ -54,7 +54,16 @@ class MessagesViewController: MSMessagesAppViewController {
     // MARK: Child view controller presentation
     
     private func presentViewController(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
-        let controller = presentationStyle == .compact ? compactedViewController() : extendedViewController()
+        let controller: UIViewController
+        if presentationStyle == .compact {
+            let compactedController = compactedViewController()
+            compactedController.delegate = self
+            controller = compactedController
+        }
+        else {
+            controller = extendedViewController()
+        }
+        
         removeAllChildViewControllers()
         addChildViewController(controller)
         
@@ -112,5 +121,26 @@ class MessagesViewController: MSMessagesAppViewController {
         // Called when the user deletes the message without sending it.
         
         // Use this to clean up state related to the deleted message.
+    }
+}
+
+extension MessagesViewController: CompactedViewControllerDelegate {
+    
+    func compactedViewController(_ viewController: CompactedViewController, didPressApplicationAt index: Int) {
+        let layout = MSMessageTemplateLayout()
+        layout.mediaFileURL = URL(string: "https://s3.amazonaws.com/assets.crashlytics.com/production/project/472401/build_version/47003467/icon/32055916/icon.png")!
+        layout.imageTitle = "Title"
+        layout.caption = "Caption"
+        
+        let session = activeConversation?.selectedMessage?.session ?? MSSession()
+        let message = MSMessage(session: session)
+        message.layout = layout
+        message.summaryText = "Summary text"
+        
+        activeConversation?.insert(message) { error in
+            if let error = error {
+                print(error)
+            }
+        }
     }
 }

@@ -9,8 +9,14 @@
 import UIKit
 import TableViewTools
 
+protocol CompactedViewControllerDelegate: class {
+    func compactedViewController(_ viewController: CompactedViewController, didPressApplicationAt index: Int)
+}
+
 class CompactedViewController: UIViewController {
 
+    weak var delegate: CompactedViewControllerDelegate?
+    
     @IBOutlet weak var tableView: UITableView!
     private lazy var tableViewManager: TableViewManager = {
         return TableViewManager(tableView: self.tableView)
@@ -21,6 +27,10 @@ class CompactedViewController: UIViewController {
 
         let sectionItem = TableViewSectionItem()
         let cellItem = CompactedTableViewCellItem()
+        cellItem.itemDidSelectHandler = { [unowned self] _, indexPath in
+            self.delegate?.compactedViewController(self, didPressApplicationAt: indexPath.row)
+        }
+        
         sectionItem.cellItems = [cellItem, cellItem, cellItem, cellItem]
         tableViewManager.sectionItems = [sectionItem]
     }
