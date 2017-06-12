@@ -62,15 +62,24 @@ class MainViewController: UIViewController {
             guard let uniqueIdentifier = userInfo[CSSearchableItemActivityIdentifier] as? String else {
                 return
             }
-            appService.loadApps { [unowned self] apps in
-                self.apps = apps
-                let application = apps.filter { String($0.id) == uniqueIdentifier }.first
-                if let application = application {
-                    let viewController = DetailViewController(application: application)
-                    self.navigationController?.popViewController(animated: false)
-                    self.navigationController?.pushViewController(viewController, animated: true)
+            if apps.count > 0 {
+                openApp(withIdentifier: uniqueIdentifier)
+            }
+            else {
+                appService.loadApps { [unowned self] apps in
+                    self.apps = apps
+                    self.openApp(withIdentifier: uniqueIdentifier)
                 }
             }
+        }
+    }
+    
+    func openApp(withIdentifier identifier: String) {
+        let application = apps.filter { String($0.id) == identifier }.first
+        if let application = application {
+            let viewController = DetailViewController(application: application)
+            self.navigationController?.popViewController(animated: false)
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
     
