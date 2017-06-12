@@ -19,10 +19,11 @@
 		061CC70B1EEC469000634893 /* AppTableViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC70A1EEC469000634893 /* AppTableViewCellItem.swift */; };
 		06CBEB711EEC486300E3EEE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC7051EEC465D00634893 /* MainViewController.swift */; };
 		849BF44D1EEE633C000A8453 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849BF44C1EEE633C000A8453 /* Messages.framework */; };
-		849BF4501EEE633C000A8453 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF44F1EEE633C000A8453 /* MessagesViewController.swift */; };
-		849BF4531EEE633C000A8453 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849BF4511EEE633C000A8453 /* MainInterface.storyboard */; };
-		849BF4551EEE633C000A8453 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849BF4541EEE633C000A8453 /* Assets.xcassets */; };
 		849BF4591EEE633C000A8453 /* HackathonMessageApp.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 849BF44B1EEE633C000A8453 /* HackathonMessageApp.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		849BF4641EEE68F1000A8453 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF4631EEE68F1000A8453 /* MessagesViewController.swift */; };
+		849BF46B1EEE690A000A8453 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849BF4661EEE690A000A8453 /* Assets.xcassets */; };
+		849BF46C1EEE690A000A8453 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849BF4671EEE690A000A8453 /* MainInterface.storyboard */; };
+		849BF46D1EEE690A000A8453 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849BF46A1EEE690A000A8453 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,10 +66,10 @@
 		061CC70A1EEC469000634893 /* AppTableViewCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCellItem.swift; sourceTree = "<group>"; };
 		849BF44B1EEE633C000A8453 /* HackathonMessageApp.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackathonMessageApp.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		849BF44C1EEE633C000A8453 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
-		849BF44F1EEE633C000A8453 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
-		849BF4521EEE633C000A8453 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		849BF4541EEE633C000A8453 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		849BF4561EEE633C000A8453 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849BF4631EEE68F1000A8453 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		849BF4661EEE690A000A8453 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		849BF4681EEE690A000A8453 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		849BF46A1EEE690A000A8453 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,12 +247,36 @@
 		849BF44E1EEE633C000A8453 /* HackathonMessageApp */ = {
 			isa = PBXGroup;
 			children = (
-				849BF44F1EEE633C000A8453 /* MessagesViewController.swift */,
-				849BF4511EEE633C000A8453 /* MainInterface.storyboard */,
-				849BF4541EEE633C000A8453 /* Assets.xcassets */,
-				849BF4561EEE633C000A8453 /* Info.plist */,
+				849BF4651EEE690A000A8453 /* Resources */,
+				849BF4611EEE68F1000A8453 /* SimpleApplications */,
 			);
 			path = HackathonMessageApp;
+			sourceTree = "<group>";
+		};
+		849BF4611EEE68F1000A8453 /* SimpleApplications */ = {
+			isa = PBXGroup;
+			children = (
+				849BF4621EEE68F1000A8453 /* ApplicationCell */,
+				849BF4631EEE68F1000A8453 /* MessagesViewController.swift */,
+			);
+			path = SimpleApplications;
+			sourceTree = "<group>";
+		};
+		849BF4621EEE68F1000A8453 /* ApplicationCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ApplicationCell;
+			sourceTree = "<group>";
+		};
+		849BF4651EEE690A000A8453 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				849BF4661EEE690A000A8453 /* Assets.xcassets */,
+				849BF4671EEE690A000A8453 /* MainInterface.storyboard */,
+				849BF46A1EEE690A000A8453 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +336,7 @@
 					};
 					849BF44A1EEE633C000A8453 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -349,8 +375,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849BF4551EEE633C000A8453 /* Assets.xcassets in Resources */,
-				849BF4531EEE633C000A8453 /* MainInterface.storyboard in Resources */,
+				849BF46B1EEE690A000A8453 /* Assets.xcassets in Resources */,
+				849BF46C1EEE690A000A8453 /* MainInterface.storyboard in Resources */,
+				849BF46D1EEE690A000A8453 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849BF4501EEE633C000A8453 /* MessagesViewController.swift in Sources */,
+				849BF4641EEE68F1000A8453 /* MessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,10 +449,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		849BF4511EEE633C000A8453 /* MainInterface.storyboard */ = {
+		849BF4671EEE690A000A8453 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				849BF4521EEE633C000A8453 /* Base */,
+				849BF4681EEE690A000A8453 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -569,14 +596,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = HackathonMessageApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/HackathonMessageApp/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rosberry.hackathon.HackathonMessageApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -586,8 +615,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = HackathonMessageApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/HackathonMessageApp/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rosberry.hackathon.HackathonMessageApp;
