@@ -31,7 +31,17 @@ class TodayViewController: UIViewController {
                          AppTableViewCellItem(),
                          AppTableViewCellItem(),
                          AppTableViewCellItem()]
+        cellItems.forEach { item in
+            item.itemDidSelectHandler = { [unowned self] _, _ in
+                self.openApp()
+            }
+        }
         return TableViewSectionItem(cellItems: cellItems)
+    }
+    
+    func openApp() {
+        let url = URL(string: "hackathon://")!
+        extensionContext?.open(url, completionHandler: nil)
     }
 }
 
