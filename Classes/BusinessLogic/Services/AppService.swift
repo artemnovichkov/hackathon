@@ -17,8 +17,13 @@ final class AppService {
         Alamofire
             .request(url, method: .get, encoding: JSONEncoding.default)
             .response { response in
-                let object = try! JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
-                completion(self.map(json: object))
+                if let error = response.error {
+                    print(error)
+                }
+                else {
+                    let object = try! JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
+                    completion(self.map(json: object))
+                }
         }
     }
     

@@ -16,6 +16,7 @@ class IndexRequestHandler: CSIndexExtensionRequestHandler {
 
     override func searchableIndex(_ searchableIndex: CSSearchableIndex,
                                   reindexAllSearchableItemsWithAcknowledgementHandler acknowledgementHandler: @escaping () -> Void) {
+        RealmService.configureRealm()
         appsService.loadApps { [unowned self] apps in
             self.spotlightService.indexApplications(apps, completionHandler: { _ in
                 acknowledgementHandler()
@@ -26,6 +27,7 @@ class IndexRequestHandler: CSIndexExtensionRequestHandler {
     override func searchableIndex(_ searchableIndex: CSSearchableIndex,
                                   reindexSearchableItemsWithIdentifiers identifiers: [String],
                                   acknowledgementHandler: @escaping () -> Void) {
+        RealmService.configureRealm()
         appsService.loadApps { [unowned self] apps in
             let filteredApplications = apps.filter { identifiers.contains(String($0.id)) }
             self.spotlightService.deleteAndIndexApplications(filteredApplications, completionHandler: { _ in

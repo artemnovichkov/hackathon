@@ -16,14 +16,15 @@ class TodayViewController: UIViewController {
         
     let tableView = UITableView()
     var tableViewManager: TableViewManager!
-    
+    let appsService = AppService()
+    let spotlightService = SpotlightService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         view.addSubview(tableView)
         tableViewManager = TableViewManager(tableView: tableView)
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-        RealmService.configureRealm()
     }
     
     override func viewDidLayoutSubviews() {
@@ -32,9 +33,11 @@ class TodayViewController: UIViewController {
     }
     
     func loadData() {
-        let realm = try! Realm()
-        let apps = realm.objects(App.self).array
-        tableViewManager.sectionItems = [sectionItem(for: apps)]
+        RealmService.configureRealm()
+        appsService.loadApps { [unowned self] apps in
+            self.spotlightService.indexApplications(apps)
+            self.tableViewManager.sectionItems = [self.sectionItem(for: apps)]
+        }
     }
     
     func sectionItem(for apps: [App]) -> TableViewSectionItemProtocol {

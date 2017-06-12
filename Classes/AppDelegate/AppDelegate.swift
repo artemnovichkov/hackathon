@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         RealmService.configureRealm()
+        if let url = launchOptions?[UIApplicationLaunchOptionsKey.url] as? URL {
+            handleURL(url)
+        }
         return true
     }
 
@@ -35,8 +38,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        //TODO: mode host to user activity
-        print(url.host)
+        handleURL(url)
         return true
+    }
+    
+    // MARK: - URL Schemes
+    
+    func handleURL(_ url: URL) {
+        if let applicationIdentifier = url.host {
+            let userActivity = NSUserActivity(activityType: CSSearchableItemActionType)
+            let userInfo = [CSSearchableItemActivityIdentifier: applicationIdentifier]
+            userActivity.userInfo = userInfo
+            mainViewController?.restoreUserActivityState(userActivity)
+        }
     }
 }
