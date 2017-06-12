@@ -55,6 +55,8 @@ class TodayViewController: UIViewController {
 extension TodayViewController: NCWidgetProviding {
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.rosberry.hackathon")!
+        let realmPath = url.path + "db.realm"
         loadData()
         completionHandler(NCUpdateResult.newData)
     }

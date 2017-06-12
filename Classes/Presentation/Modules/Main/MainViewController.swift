@@ -36,6 +36,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AppService().loadApps { apps in
+            print(apps.first)
+        }
+        
         let searchableItems = apps.enumerated().map { (offset, application) -> CSSearchableItem in
             let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
             attributeSet.title = application.title

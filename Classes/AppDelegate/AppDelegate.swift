@@ -18,9 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.rootViewController = UINavigationController(rootViewController: MainViewController())
         window?.makeKeyAndVisible()
-        AppService().loadApps { apps in
-            print(apps.first)
-        }
+        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.rosberry.hackathon")!
+        let realmPath = url.path + "db.realm"
         return true
     }
 
