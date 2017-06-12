@@ -14,7 +14,7 @@ class AppTableViewCellItem: TableViewCellItemProtocol {
     let reuseType = ReuseType(cellClass: AppTableViewCell.self)
     
     func height(in tableView: UITableView) -> CGFloat {
-        return tableView.bounds.height / 2
+        return 50
     }
     
     func cell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
