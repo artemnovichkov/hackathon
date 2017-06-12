@@ -7,6 +7,8 @@
 //
 
 import Alamofire
+import Realm
+import RealmSwift
 
 final class AppService {
     
@@ -22,8 +24,25 @@ final class AppService {
     
     func map(json: [String: Any]) -> [App] {
         let rawData = json["apps"] as! [[String: Any]]
-        return rawData.flatMap { json in
-            return App(json: json)
+        let realm = try! Realm()
+        realm.beginWrite()
+        let apps = rawData.flatMap { json -> App in
+            let app = App()
+            if let id = json["id"] as? Int {
+                app.id = id
+            }
+            app.name = json["name"] as? String
+            app.icon = json["icon"] as? String
+            if let rank = json["rank"] as? Int {
+                app.rank = rank
+            }
+            if let score = json["score"] as? Int {
+                app.score = score
+            }
+            return app
         }
+        realm.add(apps)
+        try! realm.commitWrite()
+        return apps
     }
 }

@@ -7,28 +7,23 @@
 //
 
 import Foundation
+import RealmSwift
 
-class App {
+class App: Object {
     
-    let id: Int
-    let name: String
-    let icon: String
-    let rank: Int
-    let score: Int
+    dynamic var id: Int = 0
+    dynamic var name: String?
+    dynamic var icon: String?
+    dynamic var rank: Int = 0
+    dynamic var score: Int = 0
     
-    init?(json: [String: Any]) {
-        guard let id = json["id"] as? Int,
-            let name = json["name"] as? String,
-            let icon = json["icon"] as? String,
-            let rank = json["rank"] as? Int,
-            let score = json["score"] as? Int
-            else {
-                return nil
-        }
+    convenience init(id: Int = 0, name: String?, icon: String?, rank: Int = 0, score: Int = 0) {
+        self.init()
         self.id = id
         self.name = name
         self.icon = icon
         self.rank = rank
         self.score = score
     }
+
 }

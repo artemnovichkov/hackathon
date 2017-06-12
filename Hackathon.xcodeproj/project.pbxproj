@@ -26,6 +26,9 @@
 		0680936F1EEE77D9001C9BAA /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0680936E1EEE77D9001C9BAA /* AppService.swift */; };
 		068093701EEE77E7001C9BAA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FE1EEC456100634893 /* Alamofire.framework */; };
 		06AB36B61EEE7B5900E1F33D /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB36B51EEE7B5900E1F33D /* App.swift */; };
+		06AB36B91EEE88AB00E1F33D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06AB36B81EEE88AB00E1F33D /* RealmSwift.framework */; };
+		06AB36BB1EEE8A0E00E1F33D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB36BA1EEE8A0E00E1F33D /* RealmService.swift */; };
+		06AB36BC1EEE8A0E00E1F33D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB36BA1EEE8A0E00E1F33D /* RealmService.swift */; };
 		06CBEB711EEC486300E3EEE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC7051EEC465D00634893 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +79,8 @@
 		0680936E1EEE77D9001C9BAA /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		06AB36B51EEE7B5900E1F33D /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		06AB36B71EEE840700E1F33D /* Hackathon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hackathon.entitlements; sourceTree = "<group>"; };
+		06AB36B81EEE88AB00E1F33D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		06AB36BA1EEE8A0E00E1F33D /* RealmService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06AB36B91EEE88AB00E1F33D /* RealmSwift.framework in Frameworks */,
 				061CC7011EEC458900634893 /* Alamofire.framework in Frameworks */,
 				061CC7021EEC458900634893 /* Framezilla.framework in Frameworks */,
 				061CC7031EEC458900634893 /* TableViewTools.framework in Frameworks */,
@@ -156,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				0680936E1EEE77D9001C9BAA /* AppService.swift */,
+				06AB36BA1EEE8A0E00E1F33D /* RealmService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -221,6 +228,7 @@
 		061CC6FD1EEC456000634893 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06AB36B81EEE88AB00E1F33D /* RealmSwift.framework */,
 				061CC6FE1EEC456100634893 /* Alamofire.framework */,
 				061CC7001EEC456100634893 /* Framezilla.framework */,
 				061CC6FF1EEC456100634893 /* TableViewTools.framework */,
@@ -396,6 +404,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Framezilla.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/TableViewTools.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -418,6 +428,7 @@
 				061CC7091EEC468700634893 /* AppTableViewCell.swift in Sources */,
 				06AB36B61EEE7B5900E1F33D /* App.swift in Sources */,
 				06CBEB711EEC486300E3EEE4 /* MainViewController.swift in Sources */,
+				06AB36BB1EEE8A0E00E1F33D /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +439,7 @@
 				067ABE4D1EEE5F7700527112 /* AppTableViewCellItem.swift in Sources */,
 				067ABE3D1EEE5BE600527112 /* TodayViewController.swift in Sources */,
 				067ABE4B1EEE5F1D00527112 /* AppTableViewCell.swift in Sources */,
+				06AB36BC1EEE8A0E00E1F33D /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

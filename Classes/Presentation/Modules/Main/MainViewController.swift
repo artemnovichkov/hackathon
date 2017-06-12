@@ -36,8 +36,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppService().loadApps { apps in
-            print(apps.first)
+        AppService().loadApps { [weak self] apps in
+            print(apps)
         }
         
         let searchableItems = apps.enumerated().map { (offset, application) -> CSSearchableItem in
