@@ -80,9 +80,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         content.badge = NSNumber(integerLiteral: UIApplication.shared.applicationIconBadgeNumber + 1)
         content.title = title
         content.body = body
+        content.categoryIdentifier = "Homer"
+        
         let attachmentURL = URL(fileURLWithPath: Bundle.main.path(forResource: "hsk", ofType: "gif")!)
         let attachment = try! UNNotificationAttachment(identifier: attachmentURL.lastPathComponent, url: attachmentURL, options: nil)
         content.attachments = [attachment]
+        
+        let showMoreAction = UNNotificationAction(identifier: "showMore", title: "Подробнее", options: [])
+        let category = UNNotificationCategory(identifier: "Homer", actions: [showMoreAction], intentIdentifiers: [], options: [])
+        center.setNotificationCategories([category])
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
@@ -109,6 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         print("⭐️ Received notification response")
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 }
 
