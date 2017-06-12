@@ -1,5 +1,5 @@
 //
-//  CompactedTableViewCellItem.swift
+//  ExtendedTableViewCellItem.swift
 //  Hackathon
 //
 //  Created by Nikita Ermolenko on 12/06/2017.
@@ -9,18 +9,18 @@
 import UIKit
 import TableViewTools
 
-class CompactedTableViewCellItem: TableViewCellItemProtocol {
+class ExtendedTableViewCellItem: TableViewCellItemProtocol {
 
     var reuseType: ReuseType {
-        return ReuseType.byStoryboardIdentifier("CompactedTableViewCell")
+        return ReuseType.byStoryboardIdentifier("ExtendedTableViewCell")
     }
     
     func height(in tableView: UITableView) -> CGFloat {
-        return 70
+        return 300
     }
     
     func cell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CompactedTableViewCell") as! CompactedTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExtendedTableViewCell") as! ExtendedTableViewCell
         return cell
     }
 }

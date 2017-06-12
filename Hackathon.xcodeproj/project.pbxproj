@@ -29,6 +29,8 @@
 		849BF47B1EEE7497000A8453 /* CompactedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF4761EEE6D17000A8453 /* CompactedViewController.swift */; };
 		849BF47D1EEE75B2000A8453 /* CompactedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF47C1EEE75B2000A8453 /* CompactedTableViewCell.swift */; };
 		849BF47F1EEE75E1000A8453 /* CompactedTableViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF47E1EEE75E1000A8453 /* CompactedTableViewCellItem.swift */; };
+		849BF4821EEE8BFA000A8453 /* ExtendedTableViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF4811EEE8BFA000A8453 /* ExtendedTableViewCellItem.swift */; };
+		849BF4841EEE8C0C000A8453 /* ExtendedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF4831EEE8C0C000A8453 /* ExtendedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		849BF4791EEE6DEE000A8453 /* ExtendedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedViewController.swift; sourceTree = "<group>"; };
 		849BF47C1EEE75B2000A8453 /* CompactedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactedTableViewCell.swift; sourceTree = "<group>"; };
 		849BF47E1EEE75E1000A8453 /* CompactedTableViewCellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactedTableViewCellItem.swift; sourceTree = "<group>"; };
+		849BF4811EEE8BFA000A8453 /* ExtendedTableViewCellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedTableViewCellItem.swift; sourceTree = "<group>"; };
+		849BF4831EEE8C0C000A8453 /* ExtendedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,9 +300,19 @@
 		849BF4781EEE6DDC000A8453 /* ExtendedViewController */ = {
 			isa = PBXGroup;
 			children = (
+				849BF4801EEE8BD9000A8453 /* ApplicationCell */,
 				849BF4791EEE6DEE000A8453 /* ExtendedViewController.swift */,
 			);
 			path = ExtendedViewController;
+			sourceTree = "<group>";
+		};
+		849BF4801EEE8BD9000A8453 /* ApplicationCell */ = {
+			isa = PBXGroup;
+			children = (
+				849BF4811EEE8BFA000A8453 /* ExtendedTableViewCellItem.swift */,
+				849BF4831EEE8C0C000A8453 /* ExtendedTableViewCell.swift */,
+			);
+			path = ApplicationCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,8 +471,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				849BF47F1EEE75E1000A8453 /* CompactedTableViewCellItem.swift in Sources */,
+				849BF4821EEE8BFA000A8453 /* ExtendedTableViewCellItem.swift in Sources */,
 				849BF4751EEE6CDA000A8453 /* MessagesViewController.swift in Sources */,
 				849BF47A1EEE6DEE000A8453 /* ExtendedViewController.swift in Sources */,
+				849BF4841EEE8C0C000A8453 /* ExtendedTableViewCell.swift in Sources */,
 				849BF47D1EEE75B2000A8453 /* CompactedTableViewCell.swift in Sources */,
 				849BF47B1EEE7497000A8453 /* CompactedViewController.swift in Sources */,
 			);
