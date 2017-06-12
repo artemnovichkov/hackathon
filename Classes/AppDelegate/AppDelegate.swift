@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import CoreSpotlight
 
 // swiftlint:disable line_length
 // swiftlint:disable force_try
@@ -39,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.rootViewController = UINavigationController(rootViewController: MainViewController())
         window?.makeKeyAndVisible()
+        RealmService.configureRealm()
         
         if #available(iOS 10.0, *) {
             registerForNotifications(types: [.alert, .sound, .badge])
@@ -52,6 +54,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         return true
+    }
+
+    func application(_ application: UIApplication,
+                     continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        if userActivity.activityType == CSSearchableItemActionType {
+            let uniqueIdentifier = userActivity.userInfo? [CSSearchableItemActivityIdentifier] as? String
+            print(uniqueIdentifier ?? "bla")
+        }
+        return true
+
     }
     
     @available(iOS 10.0, *)
