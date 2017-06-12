@@ -18,6 +18,9 @@ class DetailViewController: UIViewController {
     }()
     private let application: Application
     
+    var favouriteHandler: ((Application) -> Void)?
+    var deleteHandler: ((Application) -> Void)?
+    
     init(application: Application) {
         self.application = application
         super.init(nibName: nil, bundle: nil)
@@ -48,11 +51,11 @@ class DetailViewController: UIViewController {
     }
     
     func actionItems() -> [UIPreviewActionItem] {
-        let favouriteAction = UIPreviewAction(title: "⭐️ Add to Favourite", style: .default) { action, controller in
-            print("Added")
+        let favouriteAction = UIPreviewAction(title: "⭐️ Add to Favourite", style: .default) { [unowned self] action, controller in
+            self.favouriteHandler?(self.application)
         }
-        let deleteAction = UIPreviewAction(title: "❌ Stop Tracking", style: .destructive) { action, controller in
-            print("Deleted")
+        let deleteAction = UIPreviewAction(title: "❌ Stop Tracking", style: .destructive) { [unowned self] action, controller in
+            self.deleteHandler?(self.application)
         }
         let group = UIPreviewActionGroup(title: "Custom actions", style: .default, actions: [favouriteAction, deleteAction])
         return [group]
