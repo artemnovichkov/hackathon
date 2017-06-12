@@ -11,62 +11,25 @@ import TableViewTools
 import CoreSpotlight
 import MobileCoreServices
 
-final class Application {
-    
-    let title: String
-    
-    init(title: String) {
-        self.title = title
-    }
-}
-
 class MainViewController: UIViewController {
     
     var tableViewManager: TableViewManager!
     let tableView = UITableView()
-    let apps = [
-        Application(title: "Calico"),
-        Application(title: "RandomChat"),
-        Application(title: "Phyzseek"),
-        Application(title: "HypeType"),
-        Application(title: "Trackd"),
-        Application(title: "Beatmix")
-    ]
+    var applications = [Application]()
+    
+    let applicationFetchingService = ApplicationsFetchingService()
+    let spotlightService = SpotlightService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let searchableItems = apps.enumerated().map { (offset, application) -> CSSearchableItem in
-            let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
-            attributeSet.title = application.title
-            attributeSet.contentDescription = "Rosberry Application"
-            attributeSet.phoneNumbers = ["+79514032124"]
-            attributeSet.supportsPhoneCall = true
-//            attributeSet.thumbnailData = DocumentImage.jpg
-            return CSSearchableItem(uniqueIdentifier: "\(offset)",
-                domainIdentifier: "com.rosberryhackathon",
-                attributeSet: attributeSet)
+        applicationFetchingService.fetchApplications { [unowned self] applications in
+            self.applications = applications
+//            self.spotlightService.deleteAndIndexApplications(applications)
+            self.tableViewManager = TableViewManager(tableView: self.tableView)
+            self.tableViewManager.sectionItems = [self.testAppSectionItem()]
+            self.view.addSubview(self.tableView)
         }
-        CSSearchableIndex.default().deleteAllSearchableItems { error in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            else {
-                print("Items deleted.")
-            }
-            CSSearchableIndex.default().indexSearchableItems(searchableItems) { error in
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-                else {
-                    print("Items indexed.")
-                }
-            }
-        }
-        
-        tableViewManager = TableViewManager(tableView: tableView)
-        tableViewManager.sectionItems = [testAppSectionItem()]
-        view.addSubview(tableView)
     }
     
     override func viewDidLayoutSubviews() {
@@ -75,7 +38,7 @@ class MainViewController: UIViewController {
     }
         
     func testAppSectionItem() -> TableViewSectionItem {
-        let cellItems = apps.map { application -> TableViewCellItemProtocol in
+        let cellItems = applications.map { application -> TableViewCellItemProtocol in
             let cellItem = AppTableViewCellItem(title: application.title)
             cellItem.itemDidSelectHandler = { [unowned self] tableView, indexPath in
                 tableView.deselectRow(at: indexPath, animated: true)
@@ -89,7 +52,18 @@ class MainViewController: UIViewController {
 
     override func restoreUserActivityState(_ activity: NSUserActivity) {
         if activity.activityType == CSSearchableItemActionType, let userInfo = activity.userInfo {
-            let uniqueIdentifier = userInfo[CSSearchableItemActivityIdentifier]
+            guard let uniqueIdentifier = userInfo[CSSearchableItemActivityIdentifier] as? String else {
+                return
+            }
+            applicationFetchingService.fetchApplications { [unowned self] applications in
+                self.applications = applications
+                let application = applications.filter { $0.uniqueIdentifier == uniqueIdentifier }.first
+                if let application = application {
+                    let viewController = DetailViewController(application: application)
+                    self.navigationController?.popViewController(animated: false)
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+            }
         }
     }
     

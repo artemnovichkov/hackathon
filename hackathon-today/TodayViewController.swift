@@ -47,7 +47,7 @@ class TodayViewController: UIViewController {
     }
     
     func openApp() {
-        let url = URL(string: "hackathon://")!
+        let url = URL(string: "hackathon://applications/\(0)")!
         extensionContext?.open(url, completionHandler: nil)
     }
 }

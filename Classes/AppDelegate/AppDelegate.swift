@@ -13,6 +13,9 @@ import CoreSpotlight
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var mainViewController: MainViewController? {
+        return ((window?.rootViewController as? UINavigationController)?.viewControllers.first as? MainViewController)
+    }
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -24,10 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        if userActivity.activityType == CSSearchableItemActionType {
-            let uniqueIdentifier = userActivity.userInfo? [CSSearchableItemActivityIdentifier] as? String
-            print(uniqueIdentifier ?? "bla")
-        }
+        mainViewController?.restoreUserActivityState(userActivity)
         return true
 
     }
