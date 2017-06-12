@@ -25,5 +25,8 @@ class App: Object {
         self.rank = rank
         self.score = score
     }
-
+    
+    override class func primaryKey() -> String? {
+        return #keyPath(id)
+    }
 }

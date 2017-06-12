@@ -41,7 +41,7 @@ final class AppService {
             }
             return app
         }
-        realm.add(apps)
+        realm.add(apps, update: true)
         try! realm.commitWrite()
         return apps
     }

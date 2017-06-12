@@ -38,20 +38,21 @@ class TodayViewController: UIViewController {
     }
     
     func sectionItem(for apps: [App]) -> TableViewSectionItemProtocol {
-        let cellItems = apps.map { app in
-            return AppTableViewCellItem(title: app.name)
-        }
-        cellItems.forEach { item in
+        let cellItems = apps.map { app -> TableViewCellItemProtocol in
+            let item = AppTableViewCellItem(app: app)
             item.itemDidSelectHandler = { [unowned self] _, _ in
-                self.openApp()
+                self.open(app: app)
             }
+            return item
         }
         return TableViewSectionItem(cellItems: cellItems)
     }
     
-    func openApp() {
-        let url = URL(string: "hackathon://")!
-        extensionContext?.open(url, completionHandler: nil)
+    func open(app: App) {
+        let url = URL(string: "hackathon://\(app.id)")!
+        extensionContext?.open(url, completionHandler: { success in
+            print(success)
+        })
     }
 }
 

@@ -30,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(uniqueIdentifier ?? "bla")
         }
         return true
-
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        //TODO: mode host to user activity
+        print(url.host)
+        return true
     }
 }
