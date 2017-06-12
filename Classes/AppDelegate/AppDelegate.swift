@@ -35,12 +35,20 @@ extension UIUserNotificationType {
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     var window: UIWindow?
+    var mainViewController: MainViewController? {
+        return ((window?.rootViewController as? UINavigationController)?.viewControllers.first as? MainViewController)
+    }
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        window?.rootViewController = UINavigationController(rootViewController: MainViewController())
+        let navigationController = UINavigationController(rootViewController: MainViewController())
+        navigationController.navigationBar.isTranslucent = false
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         RealmService.configureRealm()
+        if let url = launchOptions?[UIApplicationLaunchOptionsKey.url] as? URL {
+            handleURL(url)
+        }
         
         if #available(iOS 10.0, *) {
             registerForNotifications(types: [.alert, .sound, .badge])
@@ -59,12 +67,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication,
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        if userActivity.activityType == CSSearchableItemActionType {
-            let uniqueIdentifier = userActivity.userInfo? [CSSearchableItemActivityIdentifier] as? String
-            print(uniqueIdentifier ?? "bla")
-        }
+        mainViewController?.restoreUserActivityState(userActivity)
         return true
-
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        handleURL(url)
+        return true
+    }
+    
+    // MARK: - URL Schemes
+    
+    func handleURL(_ url: URL) {
+        if let applicationIdentifier = url.host {
+            let userActivity = NSUserActivity(activityType: CSSearchableItemActionType)
+            let userInfo = [CSSearchableItemActivityIdentifier: applicationIdentifier]
+            userActivity.userInfo = userInfo
+            mainViewController?.restoreUserActivityState(userActivity)
+        }
     }
     
     @available(iOS 10.0, *)

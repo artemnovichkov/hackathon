@@ -19,14 +19,15 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         // Do any required interface initialization here.
     }
     
+    @available(iOS 10.0, *)
     func didReceive(_ notification: UNNotification) {
         self.label?.text = notification.request.content.body
     }
 
     func didReceive(_ response: UNNotificationResponse,
                     completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
-        if let url = URL(string: "hackathon://") {
-            extensionContext?.open(url, completionHandler: nil)
+        if let appURL = URL(string: "hackathon://") {
+            extensionContext?.open(appURL, completionHandler: nil)
         }
     }
 }

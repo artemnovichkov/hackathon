@@ -12,6 +12,11 @@ import TableViewTools
 class AppTableViewCellItem: TableViewCellItemProtocol {
     
     let reuseType = ReuseType(cellClass: AppTableViewCell.self)
+    let app: App
+    
+    init(app: App) {
+        self.app = app
+    }
     
     func height(in tableView: UITableView) -> CGFloat {
         return 50
@@ -19,7 +24,7 @@ class AppTableViewCellItem: TableViewCellItemProtocol {
     
     func cell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         let cell: AppTableViewCell = tableView.dequeueReusableCell()
-        cell.titleLabel.text = "\(indexPath.row)"
+        cell.titleLabel.text = "\(app.name!), score: \(app.score)"
         return cell
     }
 }

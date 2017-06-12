@@ -16,9 +16,12 @@ class DetailViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-    private let application: Application
+    private let application: App
     
-    init(application: Application) {
+    var favouriteHandler: ((App) -> Void)?
+    var deleteHandler: ((App) -> Void)?
+    
+    init(application: App) {
         self.application = application
         super.init(nibName: nil, bundle: nil)
     }
@@ -31,7 +34,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        label.text = application.title
+        label.text = application.name
         view.addSubview(label)
     }
     
@@ -41,5 +44,20 @@ class DetailViewController: UIViewController {
             maker.sizeToFit()
             maker.center()
         }
+    }
+    
+    override var previewActionItems: [UIPreviewActionItem] {
+        return actionItems()
+    }
+    
+    func actionItems() -> [UIPreviewActionItem] {
+        let favouriteAction = UIPreviewAction(title: "⭐️ Add to Favourite", style: .default) { [unowned self] action, controller in
+            self.favouriteHandler?(self.application)
+        }
+        let deleteAction = UIPreviewAction(title: "❌ Stop Tracking", style: .destructive) { [unowned self] action, controller in
+            self.deleteHandler?(self.application)
+        }
+        let group = UIPreviewActionGroup(title: "Custom actions", style: .default, actions: [favouriteAction, deleteAction])
+        return [group]
     }
 }

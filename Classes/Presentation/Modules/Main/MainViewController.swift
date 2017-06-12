@@ -11,76 +11,42 @@ import TableViewTools
 import CoreSpotlight
 import MobileCoreServices
 
-final class Application {
-    
-    let title: String
-    
-    init(title: String) {
-        self.title = title
-    }
-}
-
 class MainViewController: UIViewController {
     
     var tableViewManager: TableViewManager!
     let tableView = UITableView()
-    let apps = [
-        Application(title: "Calico"),
-        Application(title: "RandomChat"),
-        Application(title: "Phyzseek"),
-        Application(title: "HypeType"),
-        Application(title: "Trackd"),
-        Application(title: "Beatmix")
-    ]
+    var apps = [App]()
+    
+    let appService = AppService()
+    let spotlightService = SpotlightService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        AppService().loadApps { [weak self] apps in
-            print(apps)
+        view.backgroundColor = .white
+
+        self.tableViewManager = TableViewManager(tableView: self.tableView)
+        self.tableViewManager.sectionItems = []
+
+        appService.loadApps { [unowned self] apps in
+            self.apps = apps
+            self.tableViewManager.sectionItems = [self.testAppSectionItem()]
+            self.view.addSubview(self.tableView)
+            self.spotlightService.deleteAndIndexApplications(apps)
         }
         
-        let searchableItems = apps.enumerated().map { (offset, application) -> CSSearchableItem in
-            let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
-            attributeSet.title = application.title
-            attributeSet.contentDescription = "Rosberry Application"
-            attributeSet.phoneNumbers = ["+79514032124"]
-            attributeSet.supportsPhoneCall = true
-//            attributeSet.thumbnailData = DocumentImage.jpg
-            return CSSearchableItem(uniqueIdentifier: "\(offset)",
-                domainIdentifier: "com.rosberryhackathon",
-                attributeSet: attributeSet)
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: view)
         }
-        CSSearchableIndex.default().deleteAllSearchableItems { error in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            else {
-                print("Items deleted.")
-            }
-            CSSearchableIndex.default().indexSearchableItems(searchableItems) { error in
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-                else {
-                    print("Items indexed.")
-                }
-            }
-        }
-        
-        tableViewManager = TableViewManager(tableView: tableView)
-        tableViewManager.sectionItems = [testAppSectionItem()]
-        view.addSubview(tableView)
     }
     
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+        super.viewDidLayoutSubviews()        
         tableView.frame = view.bounds
     }
-        
+    
     func testAppSectionItem() -> TableViewSectionItem {
         let cellItems = apps.map { application -> TableViewCellItemProtocol in
-            let cellItem = AppTableViewCellItem(title: application.title)
+            let cellItem = AppTableViewCellItem(title: application.name ?? "App Name")
             cellItem.itemDidSelectHandler = { [unowned self] tableView, indexPath in
                 tableView.deselectRow(at: indexPath, animated: true)
                 let viewController = DetailViewController(application: application)
@@ -90,11 +56,52 @@ class MainViewController: UIViewController {
         }
         return TableViewSectionItem(cellItems: cellItems)
     }
-
+    
     override func restoreUserActivityState(_ activity: NSUserActivity) {
         if activity.activityType == CSSearchableItemActionType, let userInfo = activity.userInfo {
-            let uniqueIdentifier = userInfo[CSSearchableItemActivityIdentifier]
+            guard let uniqueIdentifier = userInfo[CSSearchableItemActivityIdentifier] as? String else {
+                return
+            }
+            appService.loadApps { [unowned self] apps in
+                self.apps = apps
+                let application = apps.filter { String($0.id) == uniqueIdentifier }.first
+                if let application = application {
+                    let viewController = DetailViewController(application: application)
+                    self.navigationController?.popViewController(animated: false)
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+            }
         }
     }
     
+    func showAlert(withMessage message: String) {
+        let alertController = UIAlertController(title: "Hackathon", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(action)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension MainViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing,
+                           viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let point = view.convert(location, to: tableView)
+        guard let indexPath = tableView.indexPathForRow(at: point)
+            else { return nil }
+        let application = apps[indexPath.row]
+        let vc = DetailViewController(application: application)
+        vc.favouriteHandler = { [weak self] app in
+            self?.showAlert(withMessage: "App \(app.name!) has been successfully added to favourites.")
+        }
+        vc.deleteHandler = { [weak self] app in
+            self?.showAlert(withMessage: " Tracking of \(app.name!) app has been stopped.")
+        }
+        return vc
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing,
+                           commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: nil)
+    }
 }

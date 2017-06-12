@@ -17,8 +17,13 @@ final class AppService {
         Alamofire
             .request(url, method: .get, encoding: JSONEncoding.default)
             .response { response in
-                let object = try! JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
-                completion(self.map(json: object))
+                if let error = response.error {
+                    print(error)
+                }
+                else {
+                    let object = try! JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
+                    completion(self.map(json: object))
+                }
         }
     }
     
@@ -44,11 +49,11 @@ final class AppService {
             let newUsers = usage["new_users"] as! Int
             let activeUsers = (usage["active_users"] as! [String: AnyObject])["daily"] as! Int
             let crashFreeUsers = usage["crash_free_users"] as! Double
-            app.usage = Usage(newUsers: newUsers, crashFreeUsers: crashFreeUsers, activeUsers: activeUsers)
+            app.usage = Usage(users: newUsers, crashFreeUsers: crashFreeUsers, activeUsers: activeUsers)
             
             return app
         }
-        realm.add(apps)
+        realm.add(apps, update: true)
         try! realm.commitWrite()
         return apps
     }

@@ -23,6 +23,6 @@ class AppTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        titleLabel.frame = contentView.bounds
+        titleLabel.frame = CGRect(x: 8, y: 0, width: contentView.bounds.width - 8, height: contentView.bounds.height)
     }
 }
