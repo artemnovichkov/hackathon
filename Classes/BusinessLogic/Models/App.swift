@@ -27,7 +27,10 @@ class App: Object {
         self.score = score
         self.usage = usage
     }
-
+    
+    override class func primaryKey() -> String? {
+        return #keyPath(id)
+    }
 }
 
 class Usage: Object {
