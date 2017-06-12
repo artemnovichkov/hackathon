@@ -10,7 +10,7 @@ import UIKit
 
 class ExtendedTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var applicationImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!

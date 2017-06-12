@@ -7,29 +7,31 @@
 //
 
 import UIKit
+import TableViewTools
+
+protocol ExtendedViewControllerDelegate: class {
+    func extendedViewController(_ viewController: ExtendedViewController, didPressApplicationAt index: Int)
+}
 
 class ExtendedViewController: UIViewController {
 
+    weak var delegate: ExtendedViewControllerDelegate?
+    
+    @IBOutlet weak var tableView: UITableView!
+    private lazy var tableViewManager: TableViewManager = {
+        return TableViewManager(tableView: self.tableView)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let sectionItem = TableViewSectionItem()
+        let cellItem = ExtendedTableViewCellItem()
+        cellItem.itemDidSelectHandler = { [unowned self] _, indexPath in
+            self.delegate?.extendedViewController(self, didPressApplicationAt: indexPath.row)
+        }
+        
+        sectionItem.cellItems = [cellItem, cellItem, cellItem, cellItem]
+        tableViewManager.sectionItems = [sectionItem]
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

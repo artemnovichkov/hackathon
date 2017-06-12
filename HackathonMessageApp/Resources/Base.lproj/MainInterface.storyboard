@@ -129,37 +129,37 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tl-c8-h34">
                                                             <rect key="frame" x="8" y="8" width="359" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.14852002640845072" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-RA-8sJ">
                                                             <rect key="frame" x="8" y="37" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.14852002640845072" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZh-Ov-FMn">
                                                             <rect key="frame" x="8" y="66" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.14852002640845072" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEe-Kn-hc1">
                                                             <rect key="frame" x="8" y="236" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.14852002640845072" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPF-Ne-GYM">
                                                             <rect key="frame" x="8" y="178" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.14852002640845072" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DY-LP-4pJ">
                                                             <rect key="frame" x="8" y="207" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.14852002640845072" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -194,8 +194,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="activeUsersLabel" destination="AEe-Kn-hc1" id="AgB-LZ-uaF"/>
+                                            <outlet property="applicationImageView" destination="LVp-Ot-0rx" id="8DG-cN-Wur"/>
                                             <outlet property="crashFreeUsersLabel" destination="MPF-Ne-GYM" id="Gsm-Qc-hk9"/>
-                                            <outlet property="imageView" destination="LVp-Ot-0rx" id="5mY-ds-1uq"/>
                                             <outlet property="nameLabel" destination="5Tl-c8-h34" id="Pun-1j-uor"/>
                                             <outlet property="newUsersLabel" destination="1DY-LP-4pJ" id="9Fc-gp-vVa"/>
                                             <outlet property="rankLabel" destination="Mzx-RA-8sJ" id="HWX-Ic-h36"/>
@@ -213,6 +213,9 @@
                             <constraint firstItem="rrQ-fd-g6W" firstAttribute="top" secondItem="PsR-h3-ItR" secondAttribute="top" id="aM7-jc-za5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="rrQ-fd-g6W" id="zZo-vb-OSZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1l-iX-IcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
