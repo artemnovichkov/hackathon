@@ -9,6 +9,7 @@
 import Foundation
 import CoreSpotlight
 import MobileCoreServices
+import UIKit
 
 final class SpotlightService {
 
@@ -34,7 +35,9 @@ final class SpotlightService {
             attributeSet.contentDescription = "Rosberry Application"
             attributeSet.phoneNumbers = ["+79514032124"]
             attributeSet.supportsPhoneCall = true
-            //            attributeSet.thumbnailData = DocumentImage.jpg
+            if let icon = application.icon, let url = URL(string: icon) {
+                attributeSet.thumbnailData = try? Data(contentsOf: url)
+            }
             return CSSearchableItem(uniqueIdentifier: String(application.id),
                                     domainIdentifier: "com.rosberry.hackathon",
                                     attributeSet: attributeSet)

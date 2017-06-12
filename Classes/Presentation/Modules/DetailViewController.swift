@@ -13,7 +13,8 @@ class DetailViewController: UIViewController {
 
     private let label: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
+        label.textAlignment = .left
+        label.numberOfLines = 0
         return label
     }()
     private let application: App
@@ -34,14 +35,14 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        label.text = application.name
+        label.text = "Name: \(application.name!),\nRank: \(application.rank), \nScore: \(application.score)"
         view.addSubview(label)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         label.configureFrame { maker in
-            maker.sizeToFit()
+            maker.sizeThatFits(size: view.frame.size)
             maker.center()
         }
     }

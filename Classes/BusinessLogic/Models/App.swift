@@ -33,6 +33,13 @@ class App: Object {
     }
 }
 
+extension App: TextOutputStreamable {
+    func write<Target>(to target: inout Target) where Target : TextOutputStream {
+        print("Name:", name ?? "bla", to: &target)
+        print("Rank:", rank, to: &target)
+    }
+}
+
 class Usage: Object {
     dynamic var users: Int = 0
     dynamic var crashFreeUsers: Double = 0.0
