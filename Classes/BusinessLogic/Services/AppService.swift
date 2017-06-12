@@ -44,7 +44,7 @@ final class AppService {
             let newUsers = usage["new_users"] as! Int
             let activeUsers = (usage["active_users"] as! [String: AnyObject])["daily"] as! Int
             let crashFreeUsers = usage["crash_free_users"] as! Double
-            app.usage = Usage(newUsers: newUsers, crashFreeUsers: crashFreeUsers, activeUsers: activeUsers)
+            app.usage = Usage(users: newUsers, crashFreeUsers: crashFreeUsers, activeUsers: activeUsers)
             
             return app
         }
