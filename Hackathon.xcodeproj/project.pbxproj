@@ -19,7 +19,6 @@
 		061CC70B1EEC469000634893 /* AppTableViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC70A1EEC469000634893 /* AppTableViewCellItem.swift */; };
 		067ABE3A1EEE5BE600527112 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067ABE391EEE5BE600527112 /* NotificationCenter.framework */; };
 		067ABE3D1EEE5BE600527112 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067ABE3C1EEE5BE600527112 /* TodayViewController.swift */; };
-		067ABE401EEE5BE600527112 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 067ABE3E1EEE5BE600527112 /* MainInterface.storyboard */; };
 		067ABE441EEE5BE600527112 /* hackathon-today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 067ABE381EEE5BE500527112 /* hackathon-today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		067ABE491EEE5EB700527112 /* TableViewTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FF1EEC456100634893 /* TableViewTools.framework */; };
 		067ABE4B1EEE5F1D00527112 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067ABE4A1EEE5F1D00527112 /* AppTableViewCell.swift */; };
@@ -68,7 +67,6 @@
 		067ABE381EEE5BE500527112 /* hackathon-today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "hackathon-today.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		067ABE391EEE5BE600527112 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		067ABE3C1EEE5BE600527112 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		067ABE3F1EEE5BE600527112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		067ABE411EEE5BE600527112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		067ABE4A1EEE5F1D00527112 /* AppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
 		067ABE4C1EEE5F7700527112 /* AppTableViewCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCellItem.swift; sourceTree = "<group>"; };
@@ -251,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				067ABE3C1EEE5BE600527112 /* TodayViewController.swift */,
-				067ABE3E1EEE5BE600527112 /* MainInterface.storyboard */,
 				067ABE411EEE5BE600527112 /* Info.plist */,
 				067ABE4A1EEE5F1D00527112 /* AppTableViewCell.swift */,
 				067ABE4C1EEE5F7700527112 /* AppTableViewCellItem.swift */,
@@ -355,7 +352,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				067ABE401EEE5BE600527112 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,17 +423,6 @@
 			targetProxy = 067ABE421EEE5BE600527112 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		067ABE3E1EEE5BE600527112 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				067ABE3F1EEE5BE600527112 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		060F08541E4D6B3900D9166F /* Debug */ = {
