@@ -11,13 +11,13 @@ import MobileCoreServices
 
 class IndexRequestHandler: CSIndexExtensionRequestHandler {
 
-    let applicationFetchingService = ApplicationsFetchingService()
+    let appsService = AppService()
     let spotlightService = SpotlightService()
 
     override func searchableIndex(_ searchableIndex: CSSearchableIndex,
                                   reindexAllSearchableItemsWithAcknowledgementHandler acknowledgementHandler: @escaping () -> Void) {
-        applicationFetchingService.fetchApplications { [unowned self] applications in
-            self.spotlightService.deleteAndIndexApplications(applications, completionHandler: { _ in
+        appsService.loadApps { [unowned self] apps in
+            self.spotlightService.indexApplications(apps, completionHandler: { _ in
                 acknowledgementHandler()
             })
         }
@@ -26,8 +26,9 @@ class IndexRequestHandler: CSIndexExtensionRequestHandler {
     override func searchableIndex(_ searchableIndex: CSSearchableIndex,
                                   reindexSearchableItemsWithIdentifiers identifiers: [String],
                                   acknowledgementHandler: @escaping () -> Void) {
-        applicationFetchingService.fetchApplications { [unowned self] applications in
-            self.spotlightService.deleteAndIndexApplications(applications, completionHandler: { _ in
+        appsService.loadApps { [unowned self] apps in
+            let filteredApplications = apps.filter { identifiers.contains(String($0.id)) }
+            self.spotlightService.deleteAndIndexApplications(filteredApplications, completionHandler: { _ in
                 acknowledgementHandler()
             })
         }

@@ -22,6 +22,7 @@ class TodayViewController: UIViewController {
         view.addSubview(tableView)
         tableViewManager = TableViewManager(tableView: tableView)
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        RealmService.configureRealm()
     }
     
     override func viewDidLayoutSubviews() {

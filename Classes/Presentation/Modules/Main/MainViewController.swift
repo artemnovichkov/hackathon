@@ -15,31 +15,34 @@ class MainViewController: UIViewController {
     
     var tableViewManager: TableViewManager!
     let tableView = UITableView()
-    var applications = [Application]()
+    var apps = [App]()
     
-    let applicationFetchingService = ApplicationsFetchingService()
+    let appService = AppService()
     let spotlightService = SpotlightService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        applicationFetchingService.fetchApplications { [unowned self] applications in
-            self.applications = applications
-//            self.spotlightService.deleteAndIndexApplications(applications)
-            self.tableViewManager = TableViewManager(tableView: self.tableView)
+        view.backgroundColor = .white
+
+        self.tableViewManager = TableViewManager(tableView: self.tableView)
+        self.tableViewManager.sectionItems = []
+
+        appService.loadApps { [unowned self] apps in
+            self.apps = apps
             self.tableViewManager.sectionItems = [self.testAppSectionItem()]
             self.view.addSubview(self.tableView)
+            self.spotlightService.deleteAndIndexApplications(apps)
         }
     }
     
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+        super.viewDidLayoutSubviews()        
         tableView.frame = view.bounds
     }
         
     func testAppSectionItem() -> TableViewSectionItem {
-        let cellItems = applications.map { application -> TableViewCellItemProtocol in
-            let cellItem = AppTableViewCellItem(title: application.title)
+        let cellItems = apps.map { application -> TableViewCellItemProtocol in
+            let cellItem = AppTableViewCellItem(title: application.name ?? "App Name")
             cellItem.itemDidSelectHandler = { [unowned self] tableView, indexPath in
                 tableView.deselectRow(at: indexPath, animated: true)
                 let viewController = DetailViewController(application: application)
@@ -55,9 +58,9 @@ class MainViewController: UIViewController {
             guard let uniqueIdentifier = userInfo[CSSearchableItemActivityIdentifier] as? String else {
                 return
             }
-            applicationFetchingService.fetchApplications { [unowned self] applications in
-                self.applications = applications
-                let application = applications.filter { $0.uniqueIdentifier == uniqueIdentifier }.first
+            appService.loadApps { [unowned self] apps in
+                self.apps = apps
+                let application = apps.filter { String($0.id) == uniqueIdentifier }.first
                 if let application = application {
                     let viewController = DetailViewController(application: application)
                     self.navigationController?.popViewController(animated: false)

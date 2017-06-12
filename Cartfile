@@ -1,3 +1,4 @@
 github "Alamofire/Alamofire" ~> 4.0
 github "rosberry/TableViewTools" ~> 0.0
 github "Otbivnoe/Framezilla" ~> 2.0
+github "realm/realm-cocoa"

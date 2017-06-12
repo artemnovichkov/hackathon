@@ -23,15 +23,21 @@
 		067ABE491EEE5EB700527112 /* TableViewTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FF1EEC456100634893 /* TableViewTools.framework */; };
 		067ABE4B1EEE5F1D00527112 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067ABE4A1EEE5F1D00527112 /* AppTableViewCell.swift */; };
 		067ABE4D1EEE5F7700527112 /* AppTableViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067ABE4C1EEE5F7700527112 /* AppTableViewCellItem.swift */; };
+		0680936F1EEE77D9001C9BAA /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0680936E1EEE77D9001C9BAA /* AppService.swift */; };
+		068093701EEE77E7001C9BAA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FE1EEC456100634893 /* Alamofire.framework */; };
+		06AB36B61EEE7B5900E1F33D /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB36B51EEE7B5900E1F33D /* App.swift */; };
+		06AB36B91EEE88AB00E1F33D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06AB36B81EEE88AB00E1F33D /* RealmSwift.framework */; };
+		06AB36BB1EEE8A0E00E1F33D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB36BA1EEE8A0E00E1F33D /* RealmService.swift */; };
+		06AB36BC1EEE8A0E00E1F33D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB36BA1EEE8A0E00E1F33D /* RealmService.swift */; };
 		06CBEB711EEC486300E3EEE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC7051EEC465D00634893 /* MainViewController.swift */; };
 		0E65CC281EEE879B0050F7D8 /* IndexRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E65CC271EEE879B0050F7D8 /* IndexRequestHandler.swift */; };
 		0E65CC2C1EEE879B0050F7D8 /* Hackathon-spotlight.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0E65CC251EEE879B0050F7D8 /* Hackathon-spotlight.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0E65CC311EEE8A870050F7D8 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E65CC301EEE8A870050F7D8 /* Application.swift */; };
-		0E65CC321EEE8A960050F7D8 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E65CC301EEE8A870050F7D8 /* Application.swift */; };
-		0E65CC341EEE8DB00050F7D8 /* ApplicationsFetchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E65CC331EEE8DB00050F7D8 /* ApplicationsFetchingService.swift */; };
 		0E65CC361EEE8DD40050F7D8 /* SpotlightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E65CC351EEE8DD40050F7D8 /* SpotlightService.swift */; };
-		0E65CC371EEE91530050F7D8 /* ApplicationsFetchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E65CC331EEE8DB00050F7D8 /* ApplicationsFetchingService.swift */; };
 		0E65CC381EEE91560050F7D8 /* SpotlightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E65CC351EEE8DD40050F7D8 /* SpotlightService.swift */; };
+		0E65CC3A1EEE969F0050F7D8 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0680936E1EEE77D9001C9BAA /* AppService.swift */; };
+		0EF5059F1EEE9CC30016E18F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB36B51EEE7B5900E1F33D /* App.swift */; };
+		0EF505A01EEE9CC90016E18F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06AB36B81EEE88AB00E1F33D /* RealmSwift.framework */; };
+		0EF505A11EEE9CD30016E18F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FE1EEC456100634893 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,11 +92,14 @@
 		067ABE411EEE5BE600527112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		067ABE4A1EEE5F1D00527112 /* AppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
 		067ABE4C1EEE5F7700527112 /* AppTableViewCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCellItem.swift; sourceTree = "<group>"; };
+		0680936E1EEE77D9001C9BAA /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		06AB36B51EEE7B5900E1F33D /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		06AB36B71EEE840700E1F33D /* Hackathon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hackathon.entitlements; sourceTree = "<group>"; };
+		06AB36B81EEE88AB00E1F33D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		06AB36BA1EEE8A0E00E1F33D /* RealmService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		0E65CC251EEE879B0050F7D8 /* Hackathon-spotlight.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Hackathon-spotlight.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E65CC271EEE879B0050F7D8 /* IndexRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexRequestHandler.swift; sourceTree = "<group>"; };
 		0E65CC291EEE879B0050F7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E65CC301EEE8A870050F7D8 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
-		0E65CC331EEE8DB00050F7D8 /* ApplicationsFetchingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationsFetchingService.swift; sourceTree = "<group>"; };
 		0E65CC351EEE8DD40050F7D8 /* SpotlightService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06AB36B91EEE88AB00E1F33D /* RealmSwift.framework in Frameworks */,
 				061CC7011EEC458900634893 /* Alamofire.framework in Frameworks */,
 				061CC7021EEC458900634893 /* Framezilla.framework in Frameworks */,
 				061CC7031EEC458900634893 /* TableViewTools.framework in Frameworks */,
@@ -109,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				068093701EEE77E7001C9BAA /* Alamofire.framework in Frameworks */,
 				067ABE491EEE5EB700527112 /* TableViewTools.framework in Frameworks */,
 				067ABE3A1EEE5BE600527112 /* NotificationCenter.framework in Frameworks */,
 			);
@@ -118,6 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EF505A01EEE9CC90016E18F /* RealmSwift.framework in Frameworks */,
+				0EF505A11EEE9CD30016E18F /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,8 +192,9 @@
 		060F085F1E4D6C9200D9166F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0E65CC331EEE8DB00050F7D8 /* ApplicationsFetchingService.swift */,
 				0E65CC351EEE8DD40050F7D8 /* SpotlightService.swift */,
+				0680936E1EEE77D9001C9BAA /* AppService.swift */,
+				06AB36BA1EEE8A0E00E1F33D /* RealmService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -222,7 +236,7 @@
 		060F08761E4D6CDF00D9166F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0E65CC301EEE8A870050F7D8 /* Application.swift */,
+				06AB36B51EEE7B5900E1F33D /* App.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,6 +244,7 @@
 		060F087B1E4D702C00D9166F /* Hackathon */ = {
 			isa = PBXGroup;
 			children = (
+				06AB36B71EEE840700E1F33D /* Hackathon.entitlements */,
 				060F087C1E4D702C00D9166F /* Info.plist */,
 			);
 			path = Hackathon;
@@ -245,6 +260,7 @@
 		061CC6FD1EEC456000634893 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06AB36B81EEE88AB00E1F33D /* RealmSwift.framework */,
 				061CC6FE1EEC456100634893 /* Alamofire.framework */,
 				061CC7001EEC456100634893 /* Framezilla.framework */,
 				061CC6FF1EEC456100634893 /* TableViewTools.framework */,
@@ -372,6 +388,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = GPVA8JVMU3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					067ABE371EEE5BE500527112 = {
 						CreatedOnToolsVersion = 9.0;
@@ -455,6 +476,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Framezilla.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/TableViewTools.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -471,13 +494,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E65CC361EEE8DD40050F7D8 /* SpotlightService.swift in Sources */,
-				0E65CC311EEE8A870050F7D8 /* Application.swift in Sources */,
 				061CC70B1EEC469000634893 /* AppTableViewCellItem.swift in Sources */,
-				0E65CC341EEE8DB00050F7D8 /* ApplicationsFetchingService.swift in Sources */,
+				0680936F1EEE77D9001C9BAA /* AppService.swift in Sources */,
 				061CC6F01EEC436C00634893 /* DetailViewController.swift in Sources */,
 				060F086D1E4D6C9200D9166F /* AppDelegate.swift in Sources */,
 				061CC7091EEC468700634893 /* AppTableViewCell.swift in Sources */,
+				06AB36B61EEE7B5900E1F33D /* App.swift in Sources */,
 				06CBEB711EEC486300E3EEE4 /* MainViewController.swift in Sources */,
+				06AB36BB1EEE8A0E00E1F33D /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +512,7 @@
 				067ABE4D1EEE5F7700527112 /* AppTableViewCellItem.swift in Sources */,
 				067ABE3D1EEE5BE600527112 /* TodayViewController.swift in Sources */,
 				067ABE4B1EEE5F1D00527112 /* AppTableViewCell.swift in Sources */,
+				06AB36BC1EEE8A0E00E1F33D /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,9 +520,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E65CC3A1EEE969F0050F7D8 /* AppService.swift in Sources */,
+				0EF5059F1EEE9CC30016E18F /* App.swift in Sources */,
 				0E65CC381EEE91560050F7D8 /* SpotlightService.swift in Sources */,
-				0E65CC371EEE91530050F7D8 /* ApplicationsFetchingService.swift in Sources */,
-				0E65CC321EEE8A960050F7D8 /* Application.swift in Sources */,
 				0E65CC281EEE879B0050F7D8 /* IndexRequestHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -616,6 +641,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hackathon/Hackathon.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GPVA8JVMU3;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -637,6 +663,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hackathon/Hackathon.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GPVA8JVMU3;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -714,6 +741,10 @@
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = GPVA8JVMU3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Hackathon-spotlight/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -729,6 +760,10 @@
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = GPVA8JVMU3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Hackathon-spotlight/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -776,6 +811,7 @@
 				0E65CC2F1EEE879B0050F7D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

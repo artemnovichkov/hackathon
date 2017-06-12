@@ -16,9 +16,9 @@ class DetailViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-    private let application: Application
+    private let application: App
     
-    init(application: Application) {
+    init(application: App) {
         self.application = application
         super.init(nibName: nil, bundle: nil)
     }
@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        label.text = application.title
+        label.text = application.name
         view.addSubview(label)
     }
     
