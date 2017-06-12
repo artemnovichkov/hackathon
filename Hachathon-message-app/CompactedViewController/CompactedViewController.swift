@@ -10,12 +10,13 @@ import UIKit
 import TableViewTools
 
 protocol CompactedViewControllerDelegate: class {
-    func compactedViewController(_ viewController: CompactedViewController, didPressApplicationAt index: Int)
+    func compactedViewController(_ viewController: CompactedViewController, didPressApplication app: App)
 }
 
 class CompactedViewController: UIViewController {
 
     weak var delegate: CompactedViewControllerDelegate?
+    var apps = [App]()
     
     @IBOutlet weak var tableView: UITableView!
     private lazy var tableViewManager: TableViewManager = {
@@ -24,14 +25,16 @@ class CompactedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let sectionItem = TableViewSectionItem()
-        let cellItem = CompactedTableViewCellItem()
-        cellItem.itemDidSelectHandler = { [unowned self] _, indexPath in
-            self.delegate?.compactedViewController(self, didPressApplicationAt: indexPath.row)
-        }
         
-        sectionItem.cellItems = [cellItem, cellItem, cellItem, cellItem]
-        tableViewManager.sectionItems = [sectionItem]
+        let sectionItem = TableViewSectionItem()
+        for app in apps {
+            let cellItem = CompactedTableViewCellItem(app: app)
+            cellItem.itemDidSelectHandler = { [unowned self] _, indexPath in
+                self.delegate?.compactedViewController(self, didPressApplication: cellItem.app)
+            }
+            
+            sectionItem.cellItems = [cellItem, cellItem, cellItem, cellItem]
+            tableViewManager.sectionItems = [sectionItem]
+        }
     }
 }

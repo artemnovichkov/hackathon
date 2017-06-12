@@ -8,12 +8,34 @@
 
 import UIKit
 import Messages
+import RealmSwift
+
+fileprivate extension Results {
+    var array: [T] {
+        var objects = [T]()
+        forEach { object in
+            objects.append(object)
+        }
+        return objects
+    }
+}
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    fileprivate var apps = [App]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        RealmService.configureRealm()
+        
+        let realm = try! Realm()
+        apps = realm.objects(App.self).array
+        if apps.isEmpty {
+            AppService().loadApps(completion: { apps in
+                self.apps = apps
+            })
+        }
     }
 
     // MARK: - Conversation Handling
@@ -58,11 +80,13 @@ class MessagesViewController: MSMessagesAppViewController {
         if presentationStyle == .compact {
             let compactedController = compactedViewController()
             compactedController.delegate = self
+            compactedController.apps = apps
             controller = compactedController
         }
         else {
             let extendedVieController = extendedViewController()
             extendedVieController.delegate = self
+            extendedVieController.apps = apps
             controller = extendedVieController
         }
         
@@ -106,6 +130,24 @@ class MessagesViewController: MSMessagesAppViewController {
         return controller
     }
     
+    fileprivate func insertApp(_ app: App) {
+        let layout = MSMessageTemplateLayout()
+        layout.image = app.image
+        layout.imageTitle = app.name
+        layout.imageSubtitle = String(app.score)
+        
+        let session = activeConversation?.selectedMessage?.session ?? MSSession()
+        let message = MSMessage(session: session)
+        message.layout = layout
+        message.summaryText = "Summary text"
+        
+        activeConversation?.insert(message) { error in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
+    
     // MARK: - Message sending
     
     override func didReceive(_ message: MSMessage, conversation: MSConversation) {
@@ -128,22 +170,8 @@ class MessagesViewController: MSMessagesAppViewController {
 
 extension MessagesViewController: CompactedViewControllerDelegate {
     
-    func compactedViewController(_ viewController: CompactedViewController, didPressApplicationAt index: Int) {
-        let layout = MSMessageTemplateLayout()
-        layout.mediaFileURL = URL(string: "https://s3.amazonaws.com/assets.crashlytics.com/production/project/472401/build_version/47003467/icon/32055916/icon.png")!
-        layout.imageTitle = "Title"
-        layout.caption = "Caption"
-        
-        let session = activeConversation?.selectedMessage?.session ?? MSSession()
-        let message = MSMessage(session: session)
-        message.layout = layout
-        message.summaryText = "Summary text"
-        
-        activeConversation?.insert(message) { error in
-            if let error = error {
-                print(error)
-            }
-        }
+    func compactedViewController(_ viewController: CompactedViewController, didPressApplication app: App) {
+        insertApp(app)
     }
 }
 
@@ -151,21 +179,6 @@ extension MessagesViewController: ExtendedViewControllerDelegate {
     
     func extendedViewController(_ viewController: ExtendedViewController, didPressApplicationAt index: Int) {
         requestPresentationStyle(.compact)
-        
-        let layout = MSMessageTemplateLayout()
-        layout.mediaFileURL = URL(string: "https://s3.amazonaws.com/assets.crashlytics.com/production/project/472401/build_version/47003467/icon/32055916/icon.png")!
-        layout.imageTitle = "Title"
-        layout.caption = "Caption"
-        
-        let session = activeConversation?.selectedMessage?.session ?? MSSession()
-        let message = MSMessage(session: session)
-        message.layout = layout
-        message.summaryText = "Summary text"
-        
-        activeConversation?.insert(message) { error in
-            if let error = error {
-                print(error)
-            }
-        }
+        insertApp(apps[index])
     }
 }

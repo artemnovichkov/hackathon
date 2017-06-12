@@ -16,10 +16,10 @@ final class AppService {
         let url = URL(string: "http://10.1.0.102")!
         Alamofire
             .request(url, method: .get, encoding: JSONEncoding.default)
-            .response { response in
-                let object = try! JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
-                completion(self.map(json: object))
-        }
+            .responseJSON(completionHandler: { dataResponse in
+                let json = dataResponse.result.value as! [String: AnyObject]
+                completion(self.map(json: json))
+            })
     }
     
     func map(json: [String: Any]) -> [App] {

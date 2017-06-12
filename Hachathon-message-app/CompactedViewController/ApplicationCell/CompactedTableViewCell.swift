@@ -10,6 +10,9 @@ import UIKit
 
 class CompactedTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var appImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

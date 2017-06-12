@@ -16,6 +16,7 @@ protocol ExtendedViewControllerDelegate: class {
 class ExtendedViewController: UIViewController {
 
     weak var delegate: ExtendedViewControllerDelegate?
+    var apps = [App]()
     
     @IBOutlet weak var tableView: UITableView!
     private lazy var tableViewManager: TableViewManager = {

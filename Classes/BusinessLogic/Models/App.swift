@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import UIKit
 
 class App: Object {
     
@@ -17,6 +18,8 @@ class App: Object {
     dynamic var rank: Int = 0
     dynamic var score: Int = 0
     dynamic var usage: Usage? = Usage()
+    
+    var image: UIImage?
     
     convenience init(id: Int = 0, name: String?, icon: String?, rank: Int = 0, score: Int = 0, usage: Usage?) {
         self.init()
@@ -30,6 +33,10 @@ class App: Object {
     
     override class func primaryKey() -> String? {
         return #keyPath(id)
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["image"]
     }
 }
 
