@@ -9,6 +9,7 @@
 import UIKit
 import NotificationCenter
 import TableViewTools
+import RealmSwift
 
 @objc (TodayViewController)
 class TodayViewController: UIViewController {
@@ -31,14 +32,15 @@ class TodayViewController: UIViewController {
     }
     
     func loadData() {
-        tableViewManager.sectionItems = [sectionItem()]
+        let realm = try! Realm()
+        let apps = realm.objects(App.self).array
+        tableViewManager.sectionItems = [sectionItem(for: apps)]
     }
     
-    func sectionItem() -> TableViewSectionItemProtocol {
-        let cellItems = [AppTableViewCellItem(),
-                         AppTableViewCellItem(),
-                         AppTableViewCellItem(),
-                         AppTableViewCellItem()]
+    func sectionItem(for apps: [App]) -> TableViewSectionItemProtocol {
+        let cellItems = apps.map { app in
+            return AppTableViewCellItem(title: app.name)
+        }
         cellItems.forEach { item in
             item.itemDidSelectHandler = { [unowned self] _, _ in
                 self.openApp()
@@ -64,5 +66,16 @@ extension TodayViewController: NCWidgetProviding {
         let expanded = activeDisplayMode == .expanded
         preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 200) : maxSize
         tableView.reloadData()
+    }
+}
+
+extension Results {
+    
+    var array: [T] {
+        var objects = [T]()
+        forEach { object in
+            objects.append(object)
+        }
+        return objects
     }
 }
