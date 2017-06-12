@@ -20,10 +20,15 @@
 		06CBEB711EEC486300E3EEE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC7051EEC465D00634893 /* MainViewController.swift */; };
 		849BF44D1EEE633C000A8453 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849BF44C1EEE633C000A8453 /* Messages.framework */; };
 		849BF4591EEE633C000A8453 /* HackathonMessageApp.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 849BF44B1EEE633C000A8453 /* HackathonMessageApp.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		849BF4641EEE68F1000A8453 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF4631EEE68F1000A8453 /* MessagesViewController.swift */; };
 		849BF46B1EEE690A000A8453 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849BF4661EEE690A000A8453 /* Assets.xcassets */; };
 		849BF46C1EEE690A000A8453 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849BF4671EEE690A000A8453 /* MainInterface.storyboard */; };
 		849BF46D1EEE690A000A8453 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849BF46A1EEE690A000A8453 /* Info.plist */; };
+		849BF46E1EEE6AEF000A8453 /* TableViewTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FF1EEC456100634893 /* TableViewTools.framework */; };
+		849BF4751EEE6CDA000A8453 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF4741EEE6CDA000A8453 /* MessagesViewController.swift */; };
+		849BF47A1EEE6DEE000A8453 /* ExtendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF4791EEE6DEE000A8453 /* ExtendedViewController.swift */; };
+		849BF47B1EEE7497000A8453 /* CompactedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF4761EEE6D17000A8453 /* CompactedViewController.swift */; };
+		849BF47D1EEE75B2000A8453 /* CompactedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF47C1EEE75B2000A8453 /* CompactedTableViewCell.swift */; };
+		849BF47F1EEE75E1000A8453 /* CompactedTableViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BF47E1EEE75E1000A8453 /* CompactedTableViewCellItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,10 +71,14 @@
 		061CC70A1EEC469000634893 /* AppTableViewCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCellItem.swift; sourceTree = "<group>"; };
 		849BF44B1EEE633C000A8453 /* HackathonMessageApp.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HackathonMessageApp.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		849BF44C1EEE633C000A8453 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
-		849BF4631EEE68F1000A8453 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		849BF4661EEE690A000A8453 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		849BF4681EEE690A000A8453 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		849BF46A1EEE690A000A8453 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849BF4741EEE6CDA000A8453 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		849BF4761EEE6D17000A8453 /* CompactedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactedViewController.swift; sourceTree = "<group>"; };
+		849BF4791EEE6DEE000A8453 /* ExtendedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedViewController.swift; sourceTree = "<group>"; };
+		849BF47C1EEE75B2000A8453 /* CompactedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactedTableViewCell.swift; sourceTree = "<group>"; };
+		849BF47E1EEE75E1000A8453 /* CompactedTableViewCellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactedTableViewCellItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849BF46E1EEE6AEF000A8453 /* TableViewTools.framework in Frameworks */,
 				849BF44D1EEE633C000A8453 /* Messages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,26 +257,12 @@
 		849BF44E1EEE633C000A8453 /* HackathonMessageApp */ = {
 			isa = PBXGroup;
 			children = (
+				849BF4741EEE6CDA000A8453 /* MessagesViewController.swift */,
+				849BF46F1EEE6B45000A8453 /* CompactedViewController */,
+				849BF4781EEE6DDC000A8453 /* ExtendedViewController */,
 				849BF4651EEE690A000A8453 /* Resources */,
-				849BF4611EEE68F1000A8453 /* SimpleApplications */,
 			);
 			path = HackathonMessageApp;
-			sourceTree = "<group>";
-		};
-		849BF4611EEE68F1000A8453 /* SimpleApplications */ = {
-			isa = PBXGroup;
-			children = (
-				849BF4621EEE68F1000A8453 /* ApplicationCell */,
-				849BF4631EEE68F1000A8453 /* MessagesViewController.swift */,
-			);
-			path = SimpleApplications;
-			sourceTree = "<group>";
-		};
-		849BF4621EEE68F1000A8453 /* ApplicationCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ApplicationCell;
 			sourceTree = "<group>";
 		};
 		849BF4651EEE690A000A8453 /* Resources */ = {
@@ -277,6 +273,32 @@
 				849BF46A1EEE690A000A8453 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		849BF46F1EEE6B45000A8453 /* CompactedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				849BF4701EEE6B45000A8453 /* ApplicationCell */,
+				849BF4761EEE6D17000A8453 /* CompactedViewController.swift */,
+			);
+			path = CompactedViewController;
+			sourceTree = "<group>";
+		};
+		849BF4701EEE6B45000A8453 /* ApplicationCell */ = {
+			isa = PBXGroup;
+			children = (
+				849BF47C1EEE75B2000A8453 /* CompactedTableViewCell.swift */,
+				849BF47E1EEE75E1000A8453 /* CompactedTableViewCellItem.swift */,
+			);
+			path = ApplicationCell;
+			sourceTree = "<group>";
+		};
+		849BF4781EEE6DDC000A8453 /* ExtendedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				849BF4791EEE6DEE000A8453 /* ExtendedViewController.swift */,
+			);
+			path = ExtendedViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,7 +456,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849BF4641EEE68F1000A8453 /* MessagesViewController.swift in Sources */,
+				849BF47F1EEE75E1000A8453 /* CompactedTableViewCellItem.swift in Sources */,
+				849BF4751EEE6CDA000A8453 /* MessagesViewController.swift in Sources */,
+				849BF47A1EEE6DEE000A8453 /* ExtendedViewController.swift in Sources */,
+				849BF47D1EEE75B2000A8453 /* CompactedTableViewCell.swift in Sources */,
+				849BF47B1EEE7497000A8453 /* CompactedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +624,10 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/HackathonMessageApp/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -617,6 +647,10 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/HackathonMessageApp/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
