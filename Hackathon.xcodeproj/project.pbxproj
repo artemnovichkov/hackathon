@@ -21,6 +21,9 @@
 		067ABE3D1EEE5BE600527112 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067ABE3C1EEE5BE600527112 /* TodayViewController.swift */; };
 		067ABE401EEE5BE600527112 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 067ABE3E1EEE5BE600527112 /* MainInterface.storyboard */; };
 		067ABE441EEE5BE600527112 /* hackathon-today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 067ABE381EEE5BE500527112 /* hackathon-today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		067ABE491EEE5EB700527112 /* TableViewTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FF1EEC456100634893 /* TableViewTools.framework */; };
+		067ABE4B1EEE5F1D00527112 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067ABE4A1EEE5F1D00527112 /* AppTableViewCell.swift */; };
+		067ABE4D1EEE5F7700527112 /* AppTableViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067ABE4C1EEE5F7700527112 /* AppTableViewCellItem.swift */; };
 		06CBEB711EEC486300E3EEE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC7051EEC465D00634893 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +70,8 @@
 		067ABE3C1EEE5BE600527112 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		067ABE3F1EEE5BE600527112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		067ABE411EEE5BE600527112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		067ABE4A1EEE5F1D00527112 /* AppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
+		067ABE4C1EEE5F7700527112 /* AppTableViewCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCellItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067ABE491EEE5EB700527112 /* TableViewTools.framework in Frameworks */,
 				067ABE3A1EEE5BE600527112 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +253,8 @@
 				067ABE3C1EEE5BE600527112 /* TodayViewController.swift */,
 				067ABE3E1EEE5BE600527112 /* MainInterface.storyboard */,
 				067ABE411EEE5BE600527112 /* Info.plist */,
+				067ABE4A1EEE5F1D00527112 /* AppTableViewCell.swift */,
+				067ABE4C1EEE5F7700527112 /* AppTableViewCellItem.swift */,
 			);
 			path = "hackathon-today";
 			sourceTree = "<group>";
@@ -404,7 +412,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067ABE4D1EEE5F7700527112 /* AppTableViewCellItem.swift in Sources */,
 				067ABE3D1EEE5BE600527112 /* TodayViewController.swift in Sources */,
+				067ABE4B1EEE5F1D00527112 /* AppTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,9 +591,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = BADGS63N6T;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "hackathon-today/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rosberry.hackathon-artem.hackathon-today";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -605,9 +619,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = BADGS63N6T;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "hackathon-today/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rosberry.hackathon-artem.hackathon-today";
 				PRODUCT_NAME = "$(TARGET_NAME)";

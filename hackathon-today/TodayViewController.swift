@@ -8,27 +8,43 @@
 
 import UIKit
 import NotificationCenter
+import TableViewTools
 
-class TodayViewController: UIViewController, NCWidgetProviding {
+class TodayViewController: UIViewController {
         
+    @IBOutlet weak var tableView: UITableView!
+    var tableViewManager: TableViewManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view from its nib.
+        tableView.tableFooterView = UIView()
+        tableViewManager = TableViewManager(tableView: tableView)
+        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func loadData() {
+        tableViewManager.sectionItems = [sectionItem()]
     }
+    
+    func sectionItem() -> TableViewSectionItemProtocol {
+        let cellItems = [AppTableViewCellItem(),
+                         AppTableViewCellItem(),
+                         AppTableViewCellItem(),
+                         AppTableViewCellItem()]
+        return TableViewSectionItem(cellItems: cellItems)
+    }
+}
+
+extension TodayViewController: NCWidgetProviding {
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
+        loadData()
         completionHandler(NCUpdateResult.newData)
     }
     
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        let expanded = activeDisplayMode == .expanded
+        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 200) : maxSize
+        tableView.reloadData()
+    }
 }
