@@ -23,6 +23,9 @@
 		067ABE491EEE5EB700527112 /* TableViewTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FF1EEC456100634893 /* TableViewTools.framework */; };
 		067ABE4B1EEE5F1D00527112 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067ABE4A1EEE5F1D00527112 /* AppTableViewCell.swift */; };
 		067ABE4D1EEE5F7700527112 /* AppTableViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067ABE4C1EEE5F7700527112 /* AppTableViewCellItem.swift */; };
+		0680936F1EEE77D9001C9BAA /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0680936E1EEE77D9001C9BAA /* AppService.swift */; };
+		068093701EEE77E7001C9BAA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061CC6FE1EEC456100634893 /* Alamofire.framework */; };
+		06AB36B61EEE7B5900E1F33D /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB36B51EEE7B5900E1F33D /* App.swift */; };
 		06CBEB711EEC486300E3EEE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC7051EEC465D00634893 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,8 @@
 		067ABE411EEE5BE600527112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		067ABE4A1EEE5F1D00527112 /* AppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
 		067ABE4C1EEE5F7700527112 /* AppTableViewCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCellItem.swift; sourceTree = "<group>"; };
+		0680936E1EEE77D9001C9BAA /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		06AB36B51EEE7B5900E1F33D /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				068093701EEE77E7001C9BAA /* Alamofire.framework in Frameworks */,
 				067ABE491EEE5EB700527112 /* TableViewTools.framework in Frameworks */,
 				067ABE3A1EEE5BE600527112 /* NotificationCenter.framework in Frameworks */,
 			);
@@ -148,6 +154,7 @@
 		060F085F1E4D6C9200D9166F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0680936E1EEE77D9001C9BAA /* AppService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 		060F08761E4D6CDF00D9166F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				06AB36B51EEE7B5900E1F33D /* App.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -397,9 +405,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				061CC70B1EEC469000634893 /* AppTableViewCellItem.swift in Sources */,
+				0680936F1EEE77D9001C9BAA /* AppService.swift in Sources */,
 				061CC6F01EEC436C00634893 /* DetailViewController.swift in Sources */,
 				060F086D1E4D6C9200D9166F /* AppDelegate.swift in Sources */,
 				061CC7091EEC468700634893 /* AppTableViewCell.swift in Sources */,
+				06AB36B61EEE7B5900E1F33D /* App.swift in Sources */,
 				06CBEB711EEC486300E3EEE4 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
