@@ -42,4 +42,19 @@ class DetailViewController: UIViewController {
             maker.center()
         }
     }
+    
+    override var previewActionItems: [UIPreviewActionItem] {
+        return actionItems()
+    }
+    
+    func actionItems() -> [UIPreviewActionItem] {
+        let favouriteAction = UIPreviewAction(title: "⭐️ Add to Favourite", style: .default) { action, controller in
+            print("Added")
+        }
+        let deleteAction = UIPreviewAction(title: "❌ Stop Tracking", style: .destructive) { action, controller in
+            print("Deleted")
+        }
+        let group = UIPreviewActionGroup(title: "Custom actions", style: .default, actions: [favouriteAction, deleteAction])
+        return [group]
+    }
 }

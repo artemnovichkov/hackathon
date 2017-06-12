@@ -46,7 +46,7 @@ class MainViewController: UIViewController {
             attributeSet.contentDescription = "Rosberry Application"
             attributeSet.phoneNumbers = ["+79514032124"]
             attributeSet.supportsPhoneCall = true
-//            attributeSet.thumbnailData = DocumentImage.jpg
+            //            attributeSet.thumbnailData = DocumentImage.jpg
             return CSSearchableItem(uniqueIdentifier: "\(offset)",
                 domainIdentifier: "com.rosberryhackathon",
                 attributeSet: attributeSet)
@@ -71,13 +71,17 @@ class MainViewController: UIViewController {
         tableViewManager = TableViewManager(tableView: tableView)
         tableViewManager.sectionItems = [testAppSectionItem()]
         view.addSubview(tableView)
+        
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: view)
+        }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
-        
+    
     func testAppSectionItem() -> TableViewSectionItem {
         let cellItems = apps.map { application -> TableViewCellItemProtocol in
             let cellItem = AppTableViewCellItem(title: application.title)
@@ -90,11 +94,28 @@ class MainViewController: UIViewController {
         }
         return TableViewSectionItem(cellItems: cellItems)
     }
-
+    
     override func restoreUserActivityState(_ activity: NSUserActivity) {
         if activity.activityType == CSSearchableItemActionType, let userInfo = activity.userInfo {
             let uniqueIdentifier = userInfo[CSSearchableItemActivityIdentifier]
         }
     }
+}
+
+extension MainViewController: UIViewControllerPreviewingDelegate {
     
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing,
+                           viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let point = view.convert(location, to: tableView)
+        guard let indexPath = tableView.indexPathForRow(at: point)
+            else { return nil }
+        let application = apps[indexPath.row]
+        let vc = DetailViewController(application: application)
+        return vc
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing,
+                           commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: nil)
+    }
 }
