@@ -39,9 +39,16 @@ final class AppService {
             if let score = json["score"] as? Int {
                 app.score = score
             }
+            
+            let usage = json["usage"] as! [String: AnyObject]
+            let newUsers = usage["new_users"] as! Int
+            let activeUsers = (usage["active_users"] as! [String: AnyObject])["daily"] as! Int
+            let crashFreeUsers = usage["crash_free_users"] as! Double
+            app.usage = Usage(newUsers: newUsers, crashFreeUsers: crashFreeUsers, activeUsers: activeUsers)
+            
             return app
         }
-        realm.add(apps)
+        realm.add(apps, update: true)
         try! realm.commitWrite()
         return apps
     }

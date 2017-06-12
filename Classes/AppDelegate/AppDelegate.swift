@@ -32,6 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         mainViewController?.restoreUserActivityState(userActivity)
         return true
-
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        //TODO: mode host to user activity
+        print(url.host)
+        return true
     }
 }

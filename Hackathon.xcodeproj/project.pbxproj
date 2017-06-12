@@ -29,6 +29,7 @@
 		06AB36B91EEE88AB00E1F33D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06AB36B81EEE88AB00E1F33D /* RealmSwift.framework */; };
 		06AB36BB1EEE8A0E00E1F33D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB36BA1EEE8A0E00E1F33D /* RealmService.swift */; };
 		06AB36BC1EEE8A0E00E1F33D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB36BA1EEE8A0E00E1F33D /* RealmService.swift */; };
+		06AB36BD1EEE8EDB00E1F33D /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB36B51EEE7B5900E1F33D /* App.swift */; };
 		06CBEB711EEC486300E3EEE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CC7051EEC465D00634893 /* MainViewController.swift */; };
 		0E65CC281EEE879B0050F7D8 /* IndexRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E65CC271EEE879B0050F7D8 /* IndexRequestHandler.swift */; };
 		0E65CC2C1EEE879B0050F7D8 /* Hackathon-spotlight.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0E65CC251EEE879B0050F7D8 /* Hackathon-spotlight.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -101,6 +102,7 @@
 		0E65CC271EEE879B0050F7D8 /* IndexRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexRequestHandler.swift; sourceTree = "<group>"; };
 		0E65CC291EEE879B0050F7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E65CC351EEE8DD40050F7D8 /* SpotlightService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightService.swift; sourceTree = "<group>"; };
+		06AB36BE1EEE94BF00E1F33D /* hackathon-today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "hackathon-today.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +300,7 @@
 		067ABE3B1EEE5BE600527112 /* hackathon-today */ = {
 			isa = PBXGroup;
 			children = (
+				06AB36BE1EEE94BF00E1F33D /* hackathon-today.entitlements */,
 				067ABE3C1EEE5BE600527112 /* TodayViewController.swift */,
 				067ABE411EEE5BE600527112 /* Info.plist */,
 				067ABE4A1EEE5F1D00527112 /* AppTableViewCell.swift */,
@@ -397,6 +400,11 @@
 					067ABE371EEE5BE500527112 = {
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = GPVA8JVMU3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					0E65CC241EEE879B0050F7D8 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -512,6 +520,7 @@
 				067ABE4D1EEE5F7700527112 /* AppTableViewCellItem.swift in Sources */,
 				067ABE3D1EEE5BE600527112 /* TodayViewController.swift in Sources */,
 				067ABE4B1EEE5F1D00527112 /* AppTableViewCell.swift in Sources */,
+				06AB36BD1EEE8EDB00E1F33D /* App.swift in Sources */,
 				06AB36BC1EEE8A0E00E1F33D /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -690,6 +699,7 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "hackathon-today/hackathon-today.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = GPVA8JVMU3;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -718,6 +728,7 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "hackathon-today/hackathon-today.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = GPVA8JVMU3;
 				FRAMEWORK_SEARCH_PATHS = (

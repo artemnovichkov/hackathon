@@ -9,6 +9,7 @@
 import UIKit
 import NotificationCenter
 import TableViewTools
+import RealmSwift
 
 @objc (TodayViewController)
 class TodayViewController: UIViewController {
@@ -31,25 +32,27 @@ class TodayViewController: UIViewController {
     }
     
     func loadData() {
-        tableViewManager.sectionItems = [sectionItem()]
+        let realm = try! Realm()
+        let apps = realm.objects(App.self).array
+        tableViewManager.sectionItems = [sectionItem(for: apps)]
     }
     
-    func sectionItem() -> TableViewSectionItemProtocol {
-        let cellItems = [AppTableViewCellItem(),
-                         AppTableViewCellItem(),
-                         AppTableViewCellItem(),
-                         AppTableViewCellItem()]
-        cellItems.forEach { item in
+    func sectionItem(for apps: [App]) -> TableViewSectionItemProtocol {
+        let cellItems = apps.map { app -> TableViewCellItemProtocol in
+            let item = AppTableViewCellItem(app: app)
             item.itemDidSelectHandler = { [unowned self] _, _ in
-                self.openApp()
+                self.open(app: app)
             }
+            return item
         }
         return TableViewSectionItem(cellItems: cellItems)
     }
     
-    func openApp() {
-        let url = URL(string: "hackathon://applications/\(0)")!
-        extensionContext?.open(url, completionHandler: nil)
+    func open(app: App) {
+        let url = URL(string: "hackathon://\(app.id)")!
+        extensionContext?.open(url, completionHandler: { success in
+            print(success)
+        })
     }
 }
 
@@ -64,5 +67,16 @@ extension TodayViewController: NCWidgetProviding {
         let expanded = activeDisplayMode == .expanded
         preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 200) : maxSize
         tableView.reloadData()
+    }
+}
+
+extension Results {
+    
+    var array: [T] {
+        var objects = [T]()
+        forEach { object in
+            objects.append(object)
+        }
+        return objects
     }
 }
